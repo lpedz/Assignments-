@@ -1,9 +1,13 @@
 import jwt
 from django.contrib.auth import authenticate, get_user_model
 from rest_framework import status
-from rest_framework.decorators import api_view, permission_classes
-from rest_framework.permissions import AllowAny
+from rest_framework.decorators import (
+    api_view, permission_classes, authentication_classes
+)
+from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
+
+from .authentication import JWTAuthentication
 
 from .serializers import RegisterSerializer, LoginSerializer, UserSerializer
 from .utils import generate_access_token, generate_refresh_token, decode_token
@@ -102,3 +106,18 @@ def refresh_token_view(request):
             {'error': 'Invalid refresh token.'},
             status=status.HTTP_401_UNAUTHORIZED
         )
+
+
+@api_view(['GET'])
+@authentication_classes([JWTAuthentication])
+@permission_classes([IsAuthenticated])
+def profile_view(request):
+    """
+    Get the authenticated user's profile.
+    GET /api/auth/profile/
+    Header: Authorization: Bearer <access_token>
+    Returns: user profile data
+    """
+    return Response({
+        'user': UserSerializer(request.user).data,
+    })

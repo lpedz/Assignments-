@@ -129,6 +129,12 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Custom User Model
 AUTH_USER_MODEL = 'accounts.User'
 
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'accounts.authentication.JWTAuthentication',
+    ),
+}
+
 # JWT Settings
 JWT_SECRET_KEY = SECRET_KEY
 JWT_ACCESS_TOKEN_EXPIRY_MINUTES = 30
