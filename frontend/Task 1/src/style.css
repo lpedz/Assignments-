@@ -1,0 +1,19 @@
+:root {
+  --transition: all 0.2s ease;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  background-color: #0B0F14;
+  color: #E6EDF3;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+/* Remove all global glowing gradients, blobs, and glass styles */
