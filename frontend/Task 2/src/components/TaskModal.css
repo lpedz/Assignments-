@@ -1,0 +1,176 @@
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(11, 15, 20, 0.85); /* Dark solid #0B0F14 overlay */
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.modal-card {
+  background: #11161D;
+  border: 1px solid #1F2933;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 440px;
+  box-shadow: 0 12px 32px rgba(0,0,0,0.4);
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+  border-bottom: 1px solid #1F2933;
+}
+
+.modal-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #E6EDF3;
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  color: #8B949E;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+}
+
+.modal-close:hover {
+  color: #E6EDF3;
+}
+
+.modal-form {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 6px;
+}
+
+.form-label {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #8B949E;
+}
+
+.required { color: #F85149; }
+.optional { color: #8B949E; text-transform: lowercase; font-weight: 400; letter-spacing: 0; }
+
+.char-count {
+  font-size: 11px;
+  color: #8B949E;
+}
+.char-count.over { color: #F85149; }
+
+.form-input {
+  background: #0B0F14;
+  border: 1px solid #1F2933;
+  border-radius: 6px;
+  padding: 10px 12px;
+  font-family: inherit;
+  font-size: 13px;
+  color: #E6EDF3;
+  outline: none;
+  transition: border-color 0.1s;
+}
+
+.form-input:focus { border-color: #7C5CFF; }
+.form-input.error { border-color: #F85149; }
+
+.form-textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.completed-toggle {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+}
+
+.toggle-switch {
+  width: 36px;
+  height: 20px;
+  background: #1F2933;
+  border-radius: 10px;
+  position: relative;
+  transition: background 0.2s;
+}
+
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-knob {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+  background: #8B949E;
+  border-radius: 50%;
+  transition: transform 0.2s, background 0.2s;
+}
+
+.toggle-switch.on { background: rgba(124, 92, 255, 0.2); border: 1px solid #7C5CFF; }
+.toggle-switch.on .toggle-knob { transform: translateX(14px); background: #7C5CFF; }
+
+.toggle-label {
+  font-size: 13px;
+  font-weight: 500;
+  color: #E6EDF3;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 8px;
+  padding-top: 20px;
+  border-top: 1px solid #1F2933;
+}
+
+/* Base button styles matching main theme */
+.btn {
+  height: 36px;
+  padding: 0 16px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-ghost {
+  background: none;
+  border: 1px solid transparent;
+  color: #8B949E;
+}
+.btn-ghost:hover { color: #E6EDF3; background: #1F2933; }
+
+.btn-primary {
+  background: #7C5CFF;
+  color: #fff;
+  border: none;
+}
+.btn-primary:hover { background: #8e73ff; transform: translateY(-1px); }
+.btn-primary:active { transform: translateY(0); }
